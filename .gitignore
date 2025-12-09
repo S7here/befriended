@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual env
+venv/
+env/
+.venv/
+
+# IDEs
+.vscode/
+.idea/
+
+# Django
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+static/
+# local settings
+*.env
+.env
+/local_settings.py
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Byte-compiled
+*.egg-info/
+dist/
+build/
+
+# Docker
+docker-compose.override.yml
