@@ -18,6 +18,9 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt /app/
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+# Create directories for static and media
+RUN mkdir -p /vol/web/static
+RUN mkdir -p /vol/web/media
 
 # Copy project
 COPY . /app/
