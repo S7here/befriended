@@ -34,6 +34,12 @@ jobs:
         run: |
           echo "${{ secrets.EC2_SSH_KEY }}" > private_key.pem
           chmod 600 private_key.pem
+            # 6️⃣ Upload deployment files to EC2
+
+      - name: Upload deployment files
+        run: |
+          scp -o StrictHostKeyChecking=no -i private_key.pem -r deploy/* ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:~/befriended-deploy/
+
 
       # 6️⃣ Deploy to EC2
       - name: Deploy on EC2
@@ -42,5 +48,6 @@ jobs:
             cd ~/befriended-deploy
             docker compose pull
             docker compose down
-            docker compose up -d
+            docker compose up -d --build
           EOF
+
