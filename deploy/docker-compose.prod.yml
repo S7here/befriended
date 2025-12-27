@@ -19,12 +19,8 @@ services:
       - bef_net
 
   web:
-    command: >
-      sh -c "
-      python manage.py migrate &&
-      python manage.py collectstatic --noinput &&
-      gunicorn BeFriended.wsgi:application --bind 0.0.0.0:8000
-      "
+    command: sh -c "gunicorn BeFriended.wsgi:application --bind 0.0.0.0:8000"
+
     image: sridharhere/befriended:latest
     container_name: befriended_web
     restart: always
